@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <style>
+        body{background-image: url(https://encolombia.com/wp-content/uploads/2014/01/peso-ideal.jpg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        form{
+            margin: 6em 0 0 0;
+            background-color: rgba(0, 0, 255, 0.5);
+
+            padding: 1em;
+            border-radius: 2em;
+        }
+
+        label, h1{
+            color: white;
+        }
+
+        button{
+            width: 12em;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        label{
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="">
+                <h1>calculo del peso ideal</h1>
+
+                <br>
+
+                <label>Escribe cual es tu peso en libras</label>
+                <input type="number" class="form-control" id="peso">
+
+                <br>
+
+                <label>Escribe cual es tu altura en metros</label>
+                <input type="number" class="form-control" id="altura" min="0">
+
+                <br>
+
+                <label>Selecciona tu genero</label>
+                <select id="genero" class="form-control">
+                    <option>Seleccionar</option>
+                    <option value="1">Femenino</option>
+                    <option value="2">Masculino</option>
+                </select>
+
+                <br>
+
+                <button type="button" class="btn btn-success mx-auto d-block" onclick="calculo();">Calcular</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+<script>
+    function calculo(){
+        var peso = document.getElementById("peso").value;
+        var altura = document.getElementById("altura").value;
+        var genero = document.getElementById("genero").value;
+
+        var imc = (peso/2.2)/(altura*altura);
+
+        alert("Tu imc es: " + imc);
+        
+    if(genero == 1){
+        if(imc < 19) {
+            alert("estado: desnutricion")
+        }else if(imc > 18 || imc < 24){
+            alert("estado: normal")
+        }else if(imc > 23 || imc < 28){
+            alert("estado: sobrepeso")
+        }else if(imc > 27 || imc < 33){
+            alert("estado: obesidad")
+        }else if(imc > 32){
+            alert("estado: OBESIDAD GRAVE")
+        }
+    }else if (genero == 2){
+        if(imc < 20){
+            alert("Estado: DESNUTRICION")
+        }else if(imc > 19 || imc < 25.9){
+            alert("Estado corporal: Normalidad")
+        }else if(imc > 24 || imc < 30.9){
+            alert("Estado corporal: Sobrepeso")
+        }else if(imc > 29 || imc < 41){
+            alert("Estado corporal: Obesidad")
+        }else if(imc > 40){
+            alert("Estado corporal: Obesidad grave")
+        }
+    }
+ }
+</script>
+</html>
